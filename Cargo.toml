@@ -1,0 +1,6 @@
+[package]
+name = "march_madness"
+version = "0.1.0"
+authors = ["Daniel Smith <smith.daniel.br@gmail.com>"]
+
+[dependencies]
