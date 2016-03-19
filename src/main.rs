@@ -1,3 +1,12 @@
+#[macro_use]
+extern crate itertools;
+
+mod tournament;
+
+use tournament::Tournament;
+
 fn main() {
-    println!("Hello, world!");
+    let mut t = Tournament::new();
+    t.run_tournament();
+    println!("{}", t);
 }
