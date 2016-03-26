@@ -6,3 +6,4 @@ authors = ["Daniel Smith <smith.daniel.br@gmail.com>"]
 [dependencies]
 itertools = "0.4"
 rand = "0.3"
+threadpool = "0.2"
