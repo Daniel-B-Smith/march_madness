@@ -31,13 +31,13 @@ pub fn run_tournament() -> Tournament {
     tournament
 }
 
-fn advance_round<'a>(round: &Vec<&'a str>,
+fn advance_round<'a>(round: &[&'a str],
                      team_comp: &TeamComp,
                      mut rng: &mut rand::Rng)
                      -> Vec<&'a str> {
     let mut next_round = Vec::new();
     let between = Range::new(0f64, 1.);
-    for mut chunk in &round.iter().chunks_lazy(2) {
+    for mut chunk in &round.iter().chunks(2) {
         let team1 = chunk.next().unwrap();
         let team2 = chunk.next().unwrap();
         if team_comp.win_probability(*team1, *team2) > between.ind_sample(&mut rng) {
@@ -146,7 +146,7 @@ impl Tournament {
 }
 
 fn print_round(f: &mut fmt::Formatter, round: &Vec<&str>) -> fmt::Result {
-    for mut chunk in &round.iter().chunks_lazy(2) {
+    for mut chunk in &round.iter().chunks(2) {
         try!(writeln!(f, "{} - {}", chunk.next().unwrap(), chunk.next().unwrap()));
     }
     Ok(())
